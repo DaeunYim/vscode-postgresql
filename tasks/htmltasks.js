@@ -12,7 +12,7 @@ var tsProject = ts.createProject(config.paths.html.root + '/tsconfig.json');
 var sysBuilder = require('systemjs-builder');
 var cleanCSS = require('gulp-clean-css');
 var argv = require('yargs').argv;
-var Server = require('karma').Server;
+// var Server = require('karma').Server;
 
 var min = (argv.min === undefined) ? false : true;
 
@@ -215,12 +215,12 @@ gulp.task('html:copy:assets', (done) => {
     Promise.all(promises).then(() => done());
 });
 
-gulp.task('html:test', function (done) {
-  new Server({
-    configFile: __dirname + '/../karma.conf.js',
-    singleRun: true
-  }, done).start();
-});
+// gulp.task('html:test', function (done) {
+//   new Server({
+//     configFile: __dirname + '/../karma.conf.js',
+//     singleRun: true
+//   }, done).start();
+// });
 
 gulp.task('html:compile', gulp.series('html:compile-src', 'html:compile-test'));
 
